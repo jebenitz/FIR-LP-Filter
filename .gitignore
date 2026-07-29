@@ -1,0 +1,5 @@
+*.log
+*.vpd
+*.fsdb
+__pycache__/
+*.pyc
