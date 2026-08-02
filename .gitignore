@@ -3,3 +3,6 @@
 *.fsdb
 __pycache__/
 *.pyc
+*.tex
+*.aux
+*.gz
