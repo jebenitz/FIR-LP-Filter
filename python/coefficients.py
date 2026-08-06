@@ -41,10 +41,10 @@ print("Rounded: ", hround)
 
 #### saving the coefficients list ####
 
-np.savetxt("python/coff.csv",h, fmt="%f", delimiter= ",")
+np.savetxt("python/coff.csv",h, fmt="%f", delimiter= ",") #float values
+np.savetxt("python/coffq115.csv",hq15, fmt="%f", delimiter= ",") #Q1.15 format
 
-
-with open("python/coeffhex.vh", "w") as f:
+with open("python/coeffhex.vh", "w") as f: #hex as parameters for RTL  
     for i, val in enumerate(hhex):
         f.write(f"localparam COEFF_{i} = 16'h{val};\n")
 
@@ -55,7 +55,7 @@ freqs, HR = signal.freqz(hround, worN=512)
 
 
 plt.plot(freqs, 20*np.log10(np.abs(H)),label ="|H| calculated")
-plt.plot(freqs, 20*np.log10(np.abs(HR)),label ="|H| truncated")
+plt.plot(freqs, 20*np.log10(np.abs(HR)),label ="|H| rounded")
 
 plt.annotate("$\omega_c$", xy =[omegac+0.05,-88] )
 plt.axvline(x=omegac, linestyle='--', linewidth=1, color="gray")
